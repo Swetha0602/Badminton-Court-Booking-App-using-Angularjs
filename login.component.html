@@ -1,0 +1,54 @@
+
+<div class="container">    
+    <div style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title" style="text-align: center;">Log In</div>
+                </div>     
+                <div style="padding-top:30px" class="panel-body" >
+                    <p style="text-align: center;">
+                        {{msg}}
+                    </p>
+                        
+                    <form #f=ngForm autocomplete="off" (submit)="doLogin(f)">                                
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                    <input type="text" class="form-control"  ngModel #userphone="ngModel"  name="uphone" placeholder="Mobile Number" pattern="^(0|[1-9][0-9]*)$"  required minlength="10" >                                        
+                                </div><br>
+                                
+                                <p class="alert alert-danger"
+                                *ngIf="userphone.errors?.pattern">
+                                    Please enter valid numbers
+                                </p>
+                                <p class="alert alert-danger"
+                                *ngIf="userphone.errors?.minlength">
+                                        Please enter minimum 10 characters
+                                </p>
+                                
+                            
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="password" class="form-control" ngModel #userpassword="ngModel"  name="upassword" placeholder="Password" required>
+                                </div>
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-12" style="margin-top: 5px; margin-bottom: 50px; text-align: center;">
+                                   <input type="submit" class="btn btn-success" value="Login"> &nbsp;
+                                  Don't have Account? <a routerLink="/register">Sign-up</a>
+                                </div>
+                                <div style="text-align: center; margin-top: 50px; margin-left: 25px;" class="input-group-addfb">
+                                    <a href="https://www.facebook.com/" class="btn btn-primary" role="button" target="blank">Login with Facebook</a>
+                                    
+                                   
+                                </div>
+                        
+                            </div>
+                        </form>
+                        <br>  <br><br>
+                        
+                    </div>                     
+                </div>  
+    </div>
+
+   
+</div>
